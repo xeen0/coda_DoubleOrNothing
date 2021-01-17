@@ -1,13 +1,19 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import { HashRouter } from 'react-router-dom'
+
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
-
+import {DataProvider} from './Assets/DataContext'
 ReactDOM.render(
-  <React.StrictMode>
+  // <React.StrictMode>
+    <HashRouter>
+    <DataProvider>
     <App />
-  </React.StrictMode>,
+    </DataProvider>
+    </HashRouter>,
+  // </React.StrictMode>,
   document.getElementById('root')
 );
 
