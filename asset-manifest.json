@@ -1,0 +1,25 @@
+{
+  "files": {
+    "main.css": "/coda_DoubleOrNothing/static/css/main.390a2949.chunk.css",
+    "main.js": "/coda_DoubleOrNothing/static/js/main.ac453b82.chunk.js",
+    "main.js.map": "/coda_DoubleOrNothing/static/js/main.ac453b82.chunk.js.map",
+    "runtime-main.js": "/coda_DoubleOrNothing/static/js/runtime-main.b716ee38.js",
+    "runtime-main.js.map": "/coda_DoubleOrNothing/static/js/runtime-main.b716ee38.js.map",
+    "static/css/2.ae9f1eb3.chunk.css": "/coda_DoubleOrNothing/static/css/2.ae9f1eb3.chunk.css",
+    "static/js/2.53df2708.chunk.js": "/coda_DoubleOrNothing/static/js/2.53df2708.chunk.js",
+    "static/js/2.53df2708.chunk.js.map": "/coda_DoubleOrNothing/static/js/2.53df2708.chunk.js.map",
+    "static/js/3.c201ef26.chunk.js": "/coda_DoubleOrNothing/static/js/3.c201ef26.chunk.js",
+    "static/js/3.c201ef26.chunk.js.map": "/coda_DoubleOrNothing/static/js/3.c201ef26.chunk.js.map",
+    "index.html": "/coda_DoubleOrNothing/index.html",
+    "static/css/2.ae9f1eb3.chunk.css.map": "/coda_DoubleOrNothing/static/css/2.ae9f1eb3.chunk.css.map",
+    "static/css/main.390a2949.chunk.css.map": "/coda_DoubleOrNothing/static/css/main.390a2949.chunk.css.map",
+    "static/js/2.53df2708.chunk.js.LICENSE.txt": "/coda_DoubleOrNothing/static/js/2.53df2708.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.b716ee38.js",
+    "static/css/2.ae9f1eb3.chunk.css",
+    "static/js/2.53df2708.chunk.js",
+    "static/css/main.390a2949.chunk.css",
+    "static/js/main.ac453b82.chunk.js"
+  ]
+}
