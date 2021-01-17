@@ -1,4 +1,4 @@
-import React, { useContext, useState, } from "react";
+import React, { useContext, useState } from "react";
 import { makeStyles, lighten } from "@material-ui/core/styles";
 import Checkbox from "@material-ui/core/Checkbox";
 import {
@@ -106,15 +106,12 @@ export const ITable = () => {
   const [orderBy, setOrderBy] = useState("");
   const [page, setPage] = useState(0);
   const [rowsPerPage] = useState(10);
-  const {
-    Players,
-    SelectedPlayers,
-    setSelectedPlayers,
-  } = useContext(DataContext);
-  
+  const { Players, SelectedPlayers, setSelectedPlayers } = useContext(
+    DataContext
+  );
+
   const isSelected = (name) => SelectedPlayers.indexOf(name) !== -1;
 
-  
   const handleRequestSort = (event, property) => {
     const isAsc = orderBy === property && order === "asc";
     setOrder(isAsc ? "desc" : "asc");
@@ -123,7 +120,7 @@ export const ITable = () => {
   const handleClick = (event, name) => {
     const selectedIndex = SelectedPlayers.indexOf(name);
     let newSelected = [];
-    
+
     if (selectedIndex === -1) {
       newSelected = newSelected.concat(SelectedPlayers, name);
     } else if (selectedIndex === 0) {
@@ -147,76 +144,73 @@ export const ITable = () => {
   return (
     <div className={classes.root}>
       <Paper className={classes.paper}>
-          <Table
-            className={classes.table}
-            aria-labelledby="tableTitle"
-            aria-label="enhanced table"
-          >
-            <ITableHead
-              classes={classes}
-              order={order}
-              orderBy={orderBy}
-              onRequestSort={handleRequestSort}
-            />
-            <TableBody>
-              {Players ? (
-                stableSort(Players, getComparator(order, orderBy))
-                  .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
-                  .map((row, index) => {
-                    const isItemSelected = isSelected(row.Name);
-                    const labelId = `enhanced-table-checkbox-${index}`;
-                    return (
-                      <TableRow
-                        hover
-                        onClick={(event) => handleClick(event, row.Name)}
-                        role="checkbox"
-                        aria-checked={isItemSelected}
-                        tabIndex={-1}
-                        key={row.Name}
-                        selected={isItemSelected}
-                      >
-                        <TableCell padding="checkbox">
-                          <Checkbox
-                            checked={isItemSelected}
-                            inputProps={{ "aria-labelledby": labelId }}
-                          />
-                        </TableCell>
+        <Table
+          className={classes.table}
+          aria-labelledby="tableTitle"
+          aria-label="enhanced table"
+        >
+          <ITableHead
+            classes={classes}
+            order={order}
+            orderBy={orderBy}
+            onRequestSort={handleRequestSort}
+          />
+          <TableBody>
+            {Players ? (
+              stableSort(Players, getComparator(order, orderBy))
+                .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
+                .map((row, index) => {
+                  const isItemSelected = isSelected(row.Name);
+                  const labelId = `enhanced-table-checkbox-${index}`;
+                  return (
+                    <TableRow
+                      hover
+                      onClick={(event) => handleClick(event, row.Name)}
+                      role="checkbox"
+                      aria-checked={isItemSelected}
+                      tabIndex={-1}
+                      key={row.Name}
+                      selected={isItemSelected}
+                    >
+                      <TableCell padding="checkbox">
+                        <Checkbox
+                          checked={isItemSelected}
+                          inputProps={{ "aria-labelledby": labelId }}
+                        />
+                      </TableCell>
 
-                        <TableCell
-                          component="th"
-                          id={labelId}
-                          scope="row"
-                          padding="none"
-                          align="center"
+                      <TableCell
+                        component="th"
+                        id={labelId}
+                        scope="row"
+                        padding="none"
+                        align="center"
+                      >
+                        {row.Name}
+                      </TableCell>
+                      <TableCell align="center">{row.Level}</TableCell>
+                      <TableCell align="center">
+                        <div
+                          style={{
+                            justifyContent: "center",
+                            display: "flex",
+                          }}
                         >
-                          {row.Name}
-                        </TableCell>
-                        <TableCell align="center">{row.Level}</TableCell>
-                        <TableCell align="center">
-                          <div
-                            style={{
-                              justifyContent: "center",
-                              display: "flex",
-                            }}
-                          >
-                            <Avatar
-                              alt="Remy Sharp"
-                              src={row["Profile Image"]}
-                            />
-                          </div>
-                        </TableCell>
-                        <TableCell align="center">{row.Bet}</TableCell>
-                        <TableCell align="center">{row.Wins}</TableCell>
-                        <TableCell align="center">{row.Loss}</TableCell>
-                        <TableCell align="center">{row.Price}</TableCell>
-                      </TableRow>
-                    );
-                  })
-              ) : (
-                <div />
-              )}
-            </TableBody>
-          </Table>
+                          <Avatar alt="Remy Sharp" src={row["Profile Image"]} />
+                        </div>
+                      </TableCell>
+                      <TableCell align="center">{row.Bet}</TableCell>
+                      <TableCell align="center">{row.Wins}</TableCell>
+                      <TableCell align="center">{row.Loss}</TableCell>
+                      <TableCell align="center">{row.Price}</TableCell>
+                    </TableRow>
+                  );
+                })
+            ) : (
+              <div />
+            )}
+          </TableBody>
+        </Table>
         <TablePagination
           rowsPerPageOptions={[]}
           labelRowsPerPage=""
